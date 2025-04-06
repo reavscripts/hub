@@ -1,23 +1,13 @@
 
+local StarterGui = game:GetService("StarterGui")
+
 local function showMessage(message, duration)
-    local gui = Instance.new("ScreenGui")
-    gui.Name = "MessageGui"
-    gui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
-
-    local textLabel = Instance.new("TextLabel")
-    textLabel.Size = UDim2.new(0, 400, 0, 50)
-    textLabel.Position = UDim2.new(0.5, -200, 0.5, -25)
-    textLabel.Text = message
-    textLabel.TextSize = 20
-    textLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-    textLabel.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-    textLabel.BackgroundTransparency = 0.5
-    textLabel.Parent = gui
-
-    wait(duration)
-    gui:Destroy()
+    StarterGui:SetCore("SendNotification", {
+        Title = "Notifica", -- Puoi cambiare il titolo a tuo piacimento
+        Text = message,
+        Duration = duration or 5, -- Default a 5 secondi se non specificato
+    })
 end
-
 local function getScriptUrl()
 
     local scripts = {
