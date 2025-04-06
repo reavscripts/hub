@@ -21,14 +21,14 @@ end
 local function getScriptUrl()
 
     local scripts = {
-        [7074860883] = {  -- Esegui solo se il GameId è uguale a questo
-            [128336380114944] = "https://raw.githubusercontent.com/reavscripts/arise/refs/heads/main/dungeon.lua",  -- Script per il Dungeon
-            default = "https://raw.githubusercontent.com/reavscripts/arise/refs/heads/main/main.lua"  -- Script predefinito
+        [7074860883] = { 
+            [128336380114944] = "https://raw.githubusercontent.com/reavscripts/arise/refs/heads/main/dungeon.lua", 
+            default = "https://raw.githubusercontent.com/reavscripts/arise/refs/heads/main/main.lua"
         },
         -- Aggiungi altri giochi qui
-        [12345678901234] = {  -- Un altro esempio di gioco
-            [98765432109876] = "https://raw.githubusercontent.com/someoneelse/game_script.lua",  -- URL specifico
-            default = "https://raw.githubusercontent.com/someoneelse/game_script.lua"  -- URL predefinito
+        [12345678901234] = {  -- gameid
+            [98765432109876] = "",  -- placeid alternativo
+            default = "" 
         }
     }
 
