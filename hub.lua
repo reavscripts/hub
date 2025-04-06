@@ -19,6 +19,16 @@ local function getGameName()
     return success and name or "Failed to fetch game name"
 end
 
+local function showMessage(text, duration)
+    duration = duration or 2
+    local StarterGui = game:GetService("StarterGui")
+    StarterGui:SetCore("SendNotification", {
+        Title = "Script",
+        Text = text,
+        Duration = duration
+    })
+end
+
 local function executeScript(url, gameName)
     if not url then
         showMessage("Script not supported for this game.", 3)
