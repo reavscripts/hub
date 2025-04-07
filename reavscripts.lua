@@ -26,12 +26,12 @@ label.AnchorPoint = Vector2.new(0.5, 0)
 label.Position = UDim2.new(0.5, 0, 0.5, 170)
 label.Size = UDim2.new(0, 400, 0, 50)
 label.BackgroundTransparency = 1
-label.Text = "reav's scripts"
+label.Text = "Reav'S sCriptS"
 label.TextColor3 = Color3.fromRGB(255, 255, 255)
 label.TextStrokeTransparency = 0.5
 label.TextStrokeColor3 = Color3.new(0, 0, 0)
-label.TextSize = 94
-label.Font = Enum.Font.GothamBold
+label.TextSize = 72
+label.Font = Enum.Font.LuckiestGuy
 label.TextTransparency = 1 -- Inizio invisibile
 label.Parent = introGui
 
@@ -50,7 +50,7 @@ end)
 
 local function showMessage(message, duration)
     StarterGui:SetCore("SendNotification", {
-        Title = "reav's scripts", 
+        Title = "Reav'S sCriptS", 
         Text = message,
         Duration = duration or 5, 
     })
