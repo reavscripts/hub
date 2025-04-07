@@ -50,7 +50,7 @@ end)
 
 local function showMessage(message, duration)
     StarterGui:SetCore("SendNotification", {
-        Title = "Reav'S sCriptS", 
+        Title = "reav's scripts", 
         Text = message,
         Duration = duration or 5, 
     })
