@@ -63,7 +63,7 @@ local function getScriptUrl()
     local scripts = {
         [7074860883] = { 
             [128336380114944] = "https://raw.githubusercontent.com/reavscripts/arise/refs/heads/main/dungeon.lua", 
-			[116614712661486] = "https://raw.githubusercontent.com/reavscripts/arise/refs/heads/main/afk.lua"
+			[116614712661486] = "https://raw.githubusercontent.com/reavscripts/arise/refs/heads/main/afk.lua",
             default = "https://raw.githubusercontent.com/reavscripts/arise/refs/heads/main/main.lua"
         },
         -- Aggiungi altri giochi qui
@@ -72,14 +72,21 @@ local function getScriptUrl()
             default = "" 
         }
     }
-	pcall(function()
-    local room1 = workspace:FindFirstChild("__Main") and workspace.__Main.__World:FindFirstChild("Room_1")
+	
+	local room1
+	local main = workspace:FindFirstChild("__Main")
+	if main then
+		local world = main:FindFirstChild("__World")
+		if world then
+			room1 = world:FindFirstChild("Room_1")
+		end
+	end
 
-    if room1 and room1:FindFirstChild("Portal") then
-        showMessage("Special script triggered due to Room_1 and Portal.", 3)
-        return "https://raw.githubusercontent.com/reavscripts/arise/refs/heads/main/infernal.lua"
-    end
-	end)
+	if room1 and room1:FindFirstChild("Portal") then
+		showMessage("Special script triggered due to Room_1 and Portal.", 3)
+		return "https://raw.githubusercontent.com/reavscripts/arise/refs/heads/main/infernal.lua"
+	end
+	
 	
     local scriptUrl = scripts[game.GameId]
     if scriptUrl then
