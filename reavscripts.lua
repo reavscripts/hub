@@ -57,11 +57,13 @@ local function showMessage(message, duration)
     })
 end
 
+
 local function getScriptUrl()
 
     local scripts = {
         [7074860883] = { 
             [128336380114944] = "https://raw.githubusercontent.com/reavscripts/arise/refs/heads/main/dungeon.lua", 
+			[116614712661486] = "https://raw.githubusercontent.com/reavscripts/arise/refs/heads/main/afk.lua"
             default = "https://raw.githubusercontent.com/reavscripts/arise/refs/heads/main/main.lua"
         },
         -- Aggiungi altri giochi qui
