@@ -71,11 +71,7 @@ tween.Completed:Connect(function()
 end)
 
 local function showMessage(message, duration)
-    StarterGui:SetCore("SendNotification", {
-        Title = "reav's scripts", 
-        Text = message,
-        Duration = duration or 5, 
-    })
+
 end
 
 
