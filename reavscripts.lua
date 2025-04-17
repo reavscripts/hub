@@ -36,7 +36,7 @@ label.Font = Enum.Font.LuckiestGuy
 label.TextTransparency = 1 -- Inizio invisibile
 label.Parent = introGui
 
-local tweenInfo = TweenInfo.new(2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
+local tweenInfo = TweenInfo.new(.5, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
 local tween = TweenService:Create(image, tweenInfo, {Size = FINAL_SIZE})
 tween:Play()
 
