@@ -1,4 +1,4 @@
-task.wait(3)
+task.wait(1)
 print("A rose by any other name would smell as sweet.")
 local StarterGui = game:GetService("StarterGui")
 local Players = game:GetService("Players")
