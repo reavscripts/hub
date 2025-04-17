@@ -37,7 +37,6 @@ local quotes = {
     "“Yǒuzhì zhě shì jìng chéng.” – Chinese",
 }
 
--- Safely wait for SetCore to be available
 local function waitForSetCore(method)
     while true do
         local success = pcall(function()
@@ -47,8 +46,6 @@ local function waitForSetCore(method)
         task.wait()
     end
 end
-
--- Send the notification
 local function sendNotification()
     local quote = quotes[math.random(1, #quotes)]
     pcall(function()
@@ -59,8 +56,6 @@ local function sendNotification()
         })
     end)
 end
-
--- Wait for SetCore to be ready and send the notification
 waitForSetCore("SendNotification")
 sendNotification()
 local StarterGui = game:GetService("StarterGui")
