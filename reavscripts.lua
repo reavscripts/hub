@@ -18,8 +18,6 @@ local function sendNotification()
         })
     end)
 end
-
--- Optional: Wait a bit to make sure CoreGui is ready
 task.wait(5)
 sendNotification()
 local StarterGui = game:GetService("StarterGui")
