@@ -1,63 +1,50 @@
+local StarterGui = game:GetService("StarterGui")
+local Players = game:GetService("Players")
+
+-- Wait until LocalPlayer is fully ready
+local player = Players.LocalPlayer or Players:GetPropertyChangedSignal("LocalPlayer"):Wait() and Players.LocalPlayer
+repeat task.wait() until player and player:FindFirstChild("PlayerGui")
+
+-- Wait until SetCore is available (safe SetCore call)
+local function waitForSetCore(name)
+    local success = false
+    repeat
+        success = pcall(function()
+            StarterGui:SetCore(name, nil)
+        end)
+        if not success then task.wait() end
+    until success
+end
+
+-- Actual notification logic
+waitForSetCore("SendNotification")
+
 local quotes = {
     -- English
-    "“The only thing we have to fear is fear itself.” – English",
-    "“In the middle of every difficulty lies opportunity.” – English",
-    "“Do not go where the path may lead, go instead where there is no path and leave a trail.” – English",
-    "“Life is what happens when you're busy making other plans.” – English",
-    "“Success is not final, failure is not fatal: It is the courage to continue that counts.” – English",
-    "“Be yourself; everyone else is already taken.” – English",
-    "“The best way to predict the future is to invent it.” – English",
-    "“You miss 100% of the shots you don’t take.” – English",
-
+    "“The only thing we have to fear is fear itself.” – Franklin D. Roosevelt",
+    "“In the middle of every difficulty lies opportunity.” – Albert Einstein",
     -- Italian
-    "“Chi dorme non piglia pesci.” – Italian",
-    "“La calma è la virtù dei forti.” – Italian",
-    "“Il tempo è galantuomo.” – Italian",
-
-    -- Spanish
-    "“El que madruga, Dios lo ayuda.” – Spanish",
-    "“No hay mal que por bien no venga.” – Spanish",
-    "“A mal tiempo, buena cara.” – Spanish",
-
+    "“Chi ha tempo non aspetti tempo.” – Italian proverb",
     -- French
-    "“Je pense, donc je suis.” – French",
-    "“Il n'y a pas de fumée sans feu.” – French",
-    "“Petit à petit, l’oiseau fait son nid.” – French",
-
+    "“Il n’est jamais trop tard pour bien faire.” – French proverb",
     -- German
-    "“Was du heute kannst besorgen, das verschiebe nicht auf morgen.” – German",
-    "“Übung macht den Meister.” – German",
-
-    -- Japanese (romanized)
-    "“Nana korobi ya oki.” – Japanese",
-    "“Ichi-go ichi-e.” – Japanese",
-
-    -- Chinese (romanized)
-    "“Luòhuā liúshuǐ, zìrán chéngqù.” – Chinese",
-    "“Yǒuzhì zhě shì jìng chéng.” – Chinese",
+    "“Wer nicht wagt, der nicht gewinnt.” – German saying",
+    -- Japanese
+    "「七転び八起き」– Fall seven times, stand up eight.",
+    -- Arabic
+    "«مَن جَدَّ وَجَد» – He who strives, succeeds.",
+    -- Spanish
+    "“A quien madruga, Dios le ayuda.” – Early bird gets the worm."
 }
 
-local function waitForSetCore(method)
-    while true do
-        local success = pcall(function()
-            game:GetService("StarterGui"):SetCore(method, {})
-        end)
-        if success then break end
-        task.wait()
-    end
-end
-local function sendNotification()
-    local quote = quotes[math.random(1, #quotes)]
-    pcall(function()
-        game:GetService("StarterGui"):SetCore("SendNotification", {
-            Title = "💬 Quote of the Day",
-            Text = quote,
-            Duration = 8
-        })
-    end)
-end
-waitForSetCore("SendNotification")
-sendNotification()
+-- Show random quote
+pcall(function()
+    StarterGui:SetCore("SendNotification", {
+        Title = "💬 Quote of the Day",
+        Text = quotes[math.random(1, #quotes)],
+        Duration = 8
+    })
+end)
 local StarterGui = game:GetService("StarterGui")
 local Players = game:GetService("Players")
 local TweenService = game:GetService("TweenService")
