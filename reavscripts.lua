@@ -17,19 +17,49 @@ waitForSetCore("SendNotification")
 local quotes = {
     -- English
     "“The only thing we have to fear is fear itself.” – Franklin D. Roosevelt",
+    "“Success is not final, failure is not fatal: It is the courage to continue that counts.” – Winston Churchill",
+    "“Life is what happens when you're busy making other plans.” – John Lennon",
+    "“Be yourself; everyone else is already taken.” – Oscar Wilde",
     "“In the middle of every difficulty lies opportunity.” – Albert Einstein",
+    "“You miss 100% of the shots you don’t take.” – Wayne Gretzky",
+    "“The best way to predict the future is to invent it.” – Alan Kay",
+    "“Do not go where the path may lead, go instead where there is no path and leave a trail.” – Ralph Waldo Emerson",
+    "“It does not matter how slowly you go as long as you do not stop.” – Confucius",
+
     -- Italian
-    "“Chi ha tempo non aspetti tempo.” – Italian proverb",
+    "“Chi ha tempo non aspetti tempo.” – Proverbio italiano",
+    "“L’essenziale è invisibile agli occhi.” – Antoine de Saint-Exupéry",
+    "“Vivere è la cosa più rara al mondo. La maggior parte della gente esiste, e nulla più.” – Oscar Wilde",
+
     -- French
-    "“Il n’est jamais trop tard pour bien faire.” – French proverb",
-    -- German
-    "“Wer nicht wagt, der nicht gewinnt.” – German saying",
-    -- Japanese
-    "「七転び八起き」– Fall seven times, stand up eight.",
-    -- Arabic
-    "«مَن جَدَّ وَجَد» – He who strives, succeeds.",
+    "“Liberté, égalité, fraternité.” – Maximilien Robespierre",
+    "“Je pense, donc je suis.” – René Descartes",
+    "“Il n’y a qu’un bonheur dans la vie, c’est d’aimer et d’être aimé.” – George Sand",
+
     -- Spanish
-    "“A quien madruga, Dios le ayuda.” – Early bird gets the worm."
+    "“La vida es sueño.” – Pedro Calderón de la Barca",
+    "“En un lugar de la Mancha, de cuyo nombre no quiero acordarme...” – Miguel de Cervantes",
+    "“Caminante, no hay camino, se hace camino al andar.” – Antonio Machado",
+
+    -- German
+    "“Was mich nicht umbringt, macht mich stärker.” – Friedrich Nietzsche",
+    "“Zwei Dinge sind unendlich, das Universum und die menschliche Dummheit.” – Albert Einstein",
+    "“Im Anfang war die Tat.” – Johann Wolfgang von Goethe",
+
+    -- Japanese
+    "「七転び八起き」– Proverb (Fall seven times, stand up eight)",
+    "「己を知り、敵を知れば百戦危うからず。」– Sun Tzu",
+    "「明日は明日の風が吹く。」– Japanese proverb (Tomorrow's wind will blow tomorrow)",
+
+    -- Latin
+    "“Veni, vidi, vici.” – Julius Caesar",
+    "“Carpe diem.” – Horace",
+    "“Amor vincit omnia.” – Virgil",
+
+    -- Chinese
+    "“千里之行，始於足下。” – Laozi",
+    "“知人者智，自知者明。” – Laozi",
+    "“学而不思则罔，思而不学则殆。” – Confucius"
 }
 
 pcall(function()
