@@ -1,11 +1,7 @@
 local StarterGui = game:GetService("StarterGui")
 local Players = game:GetService("Players")
-
--- Wait until LocalPlayer is fully ready
 local player = Players.LocalPlayer or Players:GetPropertyChangedSignal("LocalPlayer"):Wait() and Players.LocalPlayer
 repeat task.wait() until player and player:FindFirstChild("PlayerGui")
-
--- Wait until SetCore is available (safe SetCore call)
 local function waitForSetCore(name)
     local success = false
     repeat
@@ -16,7 +12,6 @@ local function waitForSetCore(name)
     until success
 end
 
--- Actual notification logic
 waitForSetCore("SendNotification")
 
 local quotes = {
@@ -37,7 +32,6 @@ local quotes = {
     "“A quien madruga, Dios le ayuda.” – Early bird gets the worm."
 }
 
--- Show random quote
 pcall(function()
     StarterGui:SetCore("SendNotification", {
         Title = "💬 Quote of the Day",
@@ -45,6 +39,7 @@ pcall(function()
         Duration = 8
     })
 end)
+
 local StarterGui = game:GetService("StarterGui")
 local Players = game:GetService("Players")
 local TweenService = game:GetService("TweenService")
