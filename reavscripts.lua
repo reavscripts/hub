@@ -1,4 +1,4 @@
-repeat task.wait() until game:IsLoaded()
+task.wait(5)
 local StarterGui = game:GetService("StarterGui")
 local Players = game:GetService("Players")
 local TweenService = game:GetService("TweenService")
