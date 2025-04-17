@@ -10,44 +10,58 @@ local quotes = {
     "“You miss 100% of the shots you don’t take.” – English",
 
     -- Italian
-    "“Chi dorme non piglia pesci.” – Italian", -- He who sleeps catches no fish
-    "“La calma è la virtù dei forti.” – Italian", -- Calm is the virtue of the strong
-    "“Il tempo è galantuomo.” – Italian", -- Time is a gentleman
+    "“Chi dorme non piglia pesci.” – Italian",
+    "“La calma è la virtù dei forti.” – Italian",
+    "“Il tempo è galantuomo.” – Italian",
 
     -- Spanish
-    "“El que madruga, Dios lo ayuda.” – Spanish", -- The early bird gets the worm
-    "“No hay mal que por bien no venga.” – Spanish", -- Every cloud has a silver lining
-    "“A mal tiempo, buena cara.” – Spanish", -- Put on a brave face in hard times
+    "“El que madruga, Dios lo ayuda.” – Spanish",
+    "“No hay mal que por bien no venga.” – Spanish",
+    "“A mal tiempo, buena cara.” – Spanish",
 
     -- French
-    "“Je pense, donc je suis.” – French", -- I think, therefore I am
-    "“Il n'y a pas de fumée sans feu.” – French", -- No smoke without fire
-    "“Petit à petit, l’oiseau fait son nid.” – French", -- Little by little, the bird builds its nest
+    "“Je pense, donc je suis.” – French",
+    "“Il n'y a pas de fumée sans feu.” – French",
+    "“Petit à petit, l’oiseau fait son nid.” – French",
 
     -- German
-    "“Was du heute kannst besorgen, das verschiebe nicht auf morgen.” – German", -- Don't put off until tomorrow what you can do today
-    "“Übung macht den Meister.” – German", -- Practice makes perfect
+    "“Was du heute kannst besorgen, das verschiebe nicht auf morgen.” – German",
+    "“Übung macht den Meister.” – German",
 
     -- Japanese (romanized)
-    "“Nana korobi ya oki.” – Japanese", -- Fall seven times, stand up eight
-    "“Ichi-go ichi-e.” – Japanese", -- One time, one meeting (cherish every encounter)
+    "“Nana korobi ya oki.” – Japanese",
+    "“Ichi-go ichi-e.” – Japanese",
 
     -- Chinese (romanized)
-    "“Luòhuā liúshuǐ, zìrán chéngqù.” – Chinese", -- Falling flowers, flowing water — things happen naturally
-    "“Yǒuzhì zhě shì jìng chéng.” – Chinese", -- Where there is a will, there is a way
+    "“Luòhuā liúshuǐ, zìrán chéngqù.” – Chinese",
+    "“Yǒuzhì zhě shì jìng chéng.” – Chinese",
 }
 
+-- Safely wait for SetCore to be available
+local function waitForSetCore(method)
+    while true do
+        local success = pcall(function()
+            game:GetService("StarterGui"):SetCore(method, {})
+        end)
+        if success then break end
+        task.wait()
+    end
+end
+
+-- Send the notification
 local function sendNotification()
+    local quote = quotes[math.random(1, #quotes)]
     pcall(function()
-        game.StarterGui:SetCore("SendNotification", {
+        game:GetService("StarterGui"):SetCore("SendNotification", {
             Title = "💬 Quote of the Day",
-            Text = quotes[math.random(1, #quotes)],
+            Text = quote,
             Duration = 8
         })
     end)
 end
 
-task.wait(5)
+-- Wait for SetCore to be ready and send the notification
+waitForSetCore("SendNotification")
 sendNotification()
 local StarterGui = game:GetService("StarterGui")
 local Players = game:GetService("Players")
