@@ -1,5 +1,5 @@
 task.wait(3)
-print("A rose by any other name would smell as sweet."
+print("A rose by any other name would smell as sweet.")
 local StarterGui = game:GetService("StarterGui")
 local Players = game:GetService("Players")
 local TweenService = game:GetService("TweenService")
