@@ -1,12 +1,40 @@
 local quotes = {
-    "“The only thing we have to fear is fear itself.” – Franklin D. Roosevelt",
-    "“In the middle of every difficulty lies opportunity.” – Albert Einstein",
-    "“Do not go where the path may lead, go instead where there is no path and leave a trail.” – Ralph Waldo Emerson",
-    "“Life is what happens when you're busy making other plans.” – John Lennon",
-    "“Success is not final, failure is not fatal: It is the courage to continue that counts.” – Winston Churchill",
-    "“Be yourself; everyone else is already taken.” – Oscar Wilde",
-    "“The best way to predict the future is to invent it.” – Alan Kay",
-    "“You miss 100% of the shots you don’t take.” – Wayne Gretzky"
+    -- English
+    "“The only thing we have to fear is fear itself.” – English",
+    "“In the middle of every difficulty lies opportunity.” – English",
+    "“Do not go where the path may lead, go instead where there is no path and leave a trail.” – English",
+    "“Life is what happens when you're busy making other plans.” – English",
+    "“Success is not final, failure is not fatal: It is the courage to continue that counts.” – English",
+    "“Be yourself; everyone else is already taken.” – English",
+    "“The best way to predict the future is to invent it.” – English",
+    "“You miss 100% of the shots you don’t take.” – English",
+
+    -- Italian
+    "“Chi dorme non piglia pesci.” – Italian", -- He who sleeps catches no fish
+    "“La calma è la virtù dei forti.” – Italian", -- Calm is the virtue of the strong
+    "“Il tempo è galantuomo.” – Italian", -- Time is a gentleman
+
+    -- Spanish
+    "“El que madruga, Dios lo ayuda.” – Spanish", -- The early bird gets the worm
+    "“No hay mal que por bien no venga.” – Spanish", -- Every cloud has a silver lining
+    "“A mal tiempo, buena cara.” – Spanish", -- Put on a brave face in hard times
+
+    -- French
+    "“Je pense, donc je suis.” – French", -- I think, therefore I am
+    "“Il n'y a pas de fumée sans feu.” – French", -- No smoke without fire
+    "“Petit à petit, l’oiseau fait son nid.” – French", -- Little by little, the bird builds its nest
+
+    -- German
+    "“Was du heute kannst besorgen, das verschiebe nicht auf morgen.” – German", -- Don't put off until tomorrow what you can do today
+    "“Übung macht den Meister.” – German", -- Practice makes perfect
+
+    -- Japanese (romanized)
+    "“Nana korobi ya oki.” – Japanese", -- Fall seven times, stand up eight
+    "“Ichi-go ichi-e.” – Japanese", -- One time, one meeting (cherish every encounter)
+
+    -- Chinese (romanized)
+    "“Luòhuā liúshuǐ, zìrán chéngqù.” – Chinese", -- Falling flowers, flowing water — things happen naturally
+    "“Yǒuzhì zhě shì jìng chéng.” – Chinese", -- Where there is a will, there is a way
 }
 
 local function sendNotification()
@@ -18,6 +46,7 @@ local function sendNotification()
         })
     end)
 end
+
 task.wait(5)
 sendNotification()
 local StarterGui = game:GetService("StarterGui")
