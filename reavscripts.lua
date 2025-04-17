@@ -1,5 +1,8 @@
-local StarterGui = game:GetService("StarterGui")
+if not game:IsLoaded() then
+    game.Loaded:Wait()
+end
 local Players = game:GetService("Players")
+local StarterGui = game:GetService("StarterGui")
 local player = Players.LocalPlayer or Players:GetPropertyChangedSignal("LocalPlayer"):Wait() and Players.LocalPlayer
 repeat task.wait() until player and player:FindFirstChild("PlayerGui")
 local function waitForSetCore(name)
@@ -11,9 +14,8 @@ local function waitForSetCore(name)
         if not success then task.wait() end
     until success
 end
-
 waitForSetCore("SendNotification")
-
+-- Quotes
 local quotes = {
     -- English
     "“The only thing we have to fear is fear itself.” – Franklin D. Roosevelt",
@@ -61,6 +63,7 @@ local quotes = {
     "“知人者智，自知者明。” – Laozi",
     "“学而不思则罔，思而不学则殆。” – Confucius"
 }
+
 
 pcall(function()
     StarterGui:SetCore("SendNotification", {
