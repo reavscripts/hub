@@ -1,6 +1,27 @@
+local quotes = {
+    "“The only thing we have to fear is fear itself.” – Franklin D. Roosevelt",
+    "“In the middle of every difficulty lies opportunity.” – Albert Einstein",
+    "“Do not go where the path may lead, go instead where there is no path and leave a trail.” – Ralph Waldo Emerson",
+    "“Life is what happens when you're busy making other plans.” – John Lennon",
+    "“Success is not final, failure is not fatal: It is the courage to continue that counts.” – Winston Churchill",
+    "“Be yourself; everyone else is already taken.” – Oscar Wilde",
+    "“The best way to predict the future is to invent it.” – Alan Kay",
+    "“You miss 100% of the shots you don’t take.” – Wayne Gretzky"
+}
 
-print("A rose by any other name would smell as sweet.")
+local function sendNotification()
+    pcall(function()
+        game.StarterGui:SetCore("SendNotification", {
+            Title = "💬 Quote of the Day",
+            Text = quotes[math.random(1, #quotes)],
+            Duration = 8
+        })
+    end)
+end
+
+-- Optional: Wait a bit to make sure CoreGui is ready
 task.wait(5)
+sendNotification()
 local StarterGui = game:GetService("StarterGui")
 local Players = game:GetService("Players")
 local TweenService = game:GetService("TweenService")
