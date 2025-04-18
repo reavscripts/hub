@@ -82,7 +82,7 @@ pcall(function()
     StarterGui:SetCore("SendNotification", {
         Title = "💬 Quote of the Day",
         Text = quotes[quoteIndex],
-        Duration = 8
+        Duration = 15
     })
 end)
 
@@ -131,7 +131,7 @@ tween:Play()
 tween.Completed:Connect(function()
     local labelTween = TweenService:Create(label, TweenInfo.new(1), {TextTransparency = 0})
     labelTween:Play()
-    task.delay(3, function()
+    task.delay(2.5, function()
         introGui:Destroy()
     end)
 end)
