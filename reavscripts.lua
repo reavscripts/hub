@@ -5,15 +5,14 @@ local Players = game:GetService("Players")
 local StarterGui = game:GetService("StarterGui")
 local player = Players.LocalPlayer or Players:GetPropertyChangedSignal("LocalPlayer"):Wait() and Players.LocalPlayer
 repeat task.wait() until player and player:FindFirstChild("PlayerGui")
-local function getDailyQuoteIndex()
-    local currentTime = DateTime.now()
-    local cetTime = DateTime.fromUnixTimestamp(currentTime.UnixTimestamp + 3600)
-    local dayString = cetTime:ToIsoDate()
-    local hash = 0
-    for i = 1, #dayString do
-        hash = (hash * 31 + string.byte(dayString, i)) % #quotes
-    end
-    return hash + 1
+local function waitForSetCore(name)
+    local success = false
+    repeat
+        success = pcall(function()
+            StarterGui:SetCore(name, nil)
+        end)
+        if not success then task.wait() end
+    until success
 end
 waitForSetCore("SendNotification")
 -- Quotes
@@ -67,14 +66,13 @@ local quotes = {
 
 local function getDailyQuoteIndex()
     local currentTime = DateTime.now()
-    -- Adjust for CET (Central European Time)
-    local cetTime = currentTime:AddHours(1)  
-    local dayString = cetTime:ToIsoDate() 
+    local cetTime = DateTime.fromUnixTimestamp(currentTime.UnixTimestamp + 3600)
+    local dayString = cetTime:ToIsoDate()
     local hash = 0
     for i = 1, #dayString do
         hash = (hash * 31 + string.byte(dayString, i)) % #quotes
     end
-    return hash + 1  -- Ensure the result is between 1 and #quotes
+    return hash + 1
 end
 
 pcall(function()
@@ -82,7 +80,7 @@ pcall(function()
     StarterGui:SetCore("SendNotification", {
         Title = "💬 Quote of the Day",
         Text = quotes[quoteIndex],
-        Duration = 10
+        Duration = 5
     })
 end)
 
