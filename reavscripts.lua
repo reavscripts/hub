@@ -5,14 +5,15 @@ local Players = game:GetService("Players")
 local StarterGui = game:GetService("StarterGui")
 local player = Players.LocalPlayer or Players:GetPropertyChangedSignal("LocalPlayer"):Wait() and Players.LocalPlayer
 repeat task.wait() until player and player:FindFirstChild("PlayerGui")
-local function waitForSetCore(name)
-    local success = false
-    repeat
-        success = pcall(function()
-            StarterGui:SetCore(name, nil)
-        end)
-        if not success then task.wait() end
-    until success
+local function getDailyQuoteIndex()
+    local currentTime = DateTime.now()
+    local cetTime = DateTime.fromUnixTimestamp(currentTime.UnixTimestamp + 3600)
+    local dayString = cetTime:ToIsoDate()
+    local hash = 0
+    for i = 1, #dayString do
+        hash = (hash * 31 + string.byte(dayString, i)) % #quotes
+    end
+    return hash + 1
 end
 waitForSetCore("SendNotification")
 -- Quotes
