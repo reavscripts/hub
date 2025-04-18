@@ -66,11 +66,23 @@ local quotes = {
     "“学而不思则罔，思而不学则殆。” – Confucius"
 }
 
+local function getDailyQuoteIndex()
+    local currentTime = DateTime.now()
+    -- Adjust for CET (Central European Time)
+    local cetTime = currentTime:AddHours(1)  
+    local dayString = cetTime:ToIsoDate() 
+    local hash = 0
+    for i = 1, #dayString do
+        hash = (hash * 31 + string.byte(dayString, i)) % #quotes
+    end
+    return hash + 1  -- Ensure the result is between 1 and #quotes
+end
 
 pcall(function()
+    local quoteIndex = getDailyQuoteIndex() 
     StarterGui:SetCore("SendNotification", {
         Title = "💬 Quote of the Day",
-        Text = quotes[math.random(1, #quotes)],
+        Text = quotes[quoteIndex],
         Duration = 8
     })
 end)
