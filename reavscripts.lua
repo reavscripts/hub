@@ -1,3 +1,4 @@
+task.wait(2)
 if not game:IsLoaded() then
     game.Loaded:Wait()
 end
@@ -14,7 +15,7 @@ local function waitForSetCore(name)
         if not success then task.wait() end
     until success
 end
-wait(1)
+task.wait(1)
 waitForSetCore("SendNotification")
 -- Quotes
 local quotes = {
