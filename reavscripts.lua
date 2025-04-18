@@ -14,7 +14,6 @@ local function waitForSetCore(name)
         if not success then task.wait() end
     until success
 end
-task.wait(1)
 waitForSetCore("SendNotification")
 -- Quotes
 local quotes = {
