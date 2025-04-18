@@ -80,7 +80,7 @@ pcall(function()
     StarterGui:SetCore("SendNotification", {
         Title = "💬 Quote of the Day",
         Text = quotes[quoteIndex],
-        Duration = 5
+        Duration = 15
     })
 end)
 
