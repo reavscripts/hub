@@ -6,9 +6,6 @@ local StarterGui = game:GetService("StarterGui")
 local player = Players.LocalPlayer or Players:GetPropertyChangedSignal("LocalPlayer"):Wait() and Players.LocalPlayer
 repeat task.wait() until player and player:FindFirstChild("PlayerGui")
 if getgenv().reavscripts then
-    local Players = game:GetService("Players")
-    local player = Players.LocalPlayer
-
     local infoGui = Instance.new("ScreenGui")
     infoGui.Name = "ReavAlreadyRunning"
     infoGui.ResetOnSpawn = false
