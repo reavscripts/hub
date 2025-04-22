@@ -108,9 +108,8 @@ local quotes = {
     	"“学而不思则罔，思而不学则殆。” – Confucius"
 }
 local function getDailyQuoteIndex()
-    local currentTime = DateTime.now()
-    local cetTime = DateTime.fromUnixTimestamp(currentTime.UnixTimestamp + 3600)
-    local dayString = cetTime:ToIsoDate()
+    local utcTime = DateTime.now():ToUniversalTime()
+    local dayString = utcTime:ToIsoDate() -- e.g., "2025-04-22"
     local hash = 0
     for i = 1, #dayString do
         hash = (hash * 31 + string.byte(dayString, i)) % #quotes
@@ -119,7 +118,7 @@ local function getDailyQuoteIndex()
 end
 
 pcall(function()
-    local quoteIndex = getDailyQuoteIndex() 
+    local quoteIndex = getDailyQuoteIndex()
     StarterGui:SetCore("SendNotification", {
         Title = "💬 Quote of the Day",
         Text = quotes[quoteIndex],
