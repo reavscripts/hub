@@ -5,6 +5,34 @@ local Players = game:GetService("Players")
 local StarterGui = game:GetService("StarterGui")
 local player = Players.LocalPlayer or Players:GetPropertyChangedSignal("LocalPlayer"):Wait() and Players.LocalPlayer
 repeat task.wait() until player and player:FindFirstChild("PlayerGui")
+if getgenv().reavscripts then
+    local Players = game:GetService("Players")
+    local player = Players.LocalPlayer
+
+    local infoGui = Instance.new("ScreenGui")
+    infoGui.Name = "ReavAlreadyRunning"
+    infoGui.ResetOnSpawn = false
+    infoGui.Parent = player:WaitForChild("PlayerGui")
+
+    local label = Instance.new("TextLabel")
+    label.Size = UDim2.new(0.4, 0, 0.05, 0)
+    label.Position = UDim2.new(0.3, 0, 0.4, 0) -- 10% above center
+    label.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+    label.BackgroundTransparency = 0.2
+    label.TextColor3 = Color3.fromRGB(255, 100, 100)
+    label.Font = Enum.Font.GothamBold
+    label.TextScaled = true
+    label.Text = "Reav's Scripts already executed!"
+    label.Parent = infoGui
+
+    task.delay(3, function()
+        infoGui:Destroy()
+    end)
+
+    return
+end
+
+getgenv().reavscripts = true
 local function waitForSetCore(name)
     local success = false
     repeat
