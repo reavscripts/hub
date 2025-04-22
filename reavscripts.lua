@@ -52,6 +52,24 @@ local quotes = {
     "“The best way to predict the future is to invent it.” – Alan Kay",
     "“Do not go where the path may lead, go instead where there is no path and leave a trail.” – Ralph Waldo Emerson",
     "“It does not matter how slowly you go as long as you do not stop.” – Confucius",
+	"“The essence of strategy is choosing what not to do.“ - Michael Porter",
+	"“One cannot and must not try to erase the past merely because it does not fit the present.“ - Golda Meir"
+	"“Patriotism means to stand by the country. It does not mean to stand by the president.“ - Theodore Roosevelt"
+	"“Death is something inevitable. When a man has done what he considers to be his duty to his people and his country, he can rest in peace. I believe I have made that effort and that is, therefore, why I will sleep for the eternity.“ - Nelson Mandela"
+	"“You have to love a nation that celebrates its independence every July 4, not with a parade of guns, tanks, and soldiers who file by the White House in a show of strength and muscle, but with family picnics where kids throw Frisbees, the potato salad gets iffy, and the flies die from happiness. You may think you have overeaten, but it is patriotism.“ - Erma Bombeck"
+	"“Be more concerned with your character than your reputation, because your character is what you really are, while your reputation is merely what others think you are.“ - John Wooden"
+	"“Weak people revenge. Strong people forgive. Intelligent People Ignore.“ - Albert Einstein"
+	"“A mind is like a parachute. It doesn't work if it is not open.“ - Frank Zappa"
+	"“Never be afraid to raise your voice for honesty and truth and compassion against injustice and lying and greed.“ If people all over the world...would do this, it would change the earth. - William Faulkner"
+	"“There are three kinds of men. The one that learns by reading. The few who learn by observation. The rest of them have to pee on the electric fence for themselves.“ - Will Rogers"
+	"“A strong nation, like a strong person, can afford to be gentle, firm, thoughtful, and restrained. It can afford to extend a helping hand to others. It's a weak nation, like a weak person, that must behave with bluster and boasting and rashness and other signs of insecurity.“ - Jimmy Carter"
+	"“The difference between stupidity and genius is that genius has its limits.“ - Albert Einstein"
+	"“We the people are the rightful masters of both Congress and the courts, not to overthrow the Constitution but to overthrow the men who pervert the Constitution.“ - Abraham Lincoln"
+	"“With or without religion, you would have good people doing good things and evil people doing evil things. But for good people to do evil things, that takes religion.“ - Steven Weinberg"
+	"“Human kindness has never weakened the stamina or softened the fiber of a free people. A nation does not have to be cruel to be tough.“ - Franklin D. Roosevelt"
+	"“A person who never made a mistake never tried anything new.“ - Albert Einstein"
+	"“My mission in life is not merely to survive, but to thrive; and to do so with some passion, some compassion, some humor, and some style.“ - Maya Angelou"
+	"“Life is short, break the rules... is often attributed to Mark Twain, and it encourages embracing life fully. The full quote is: Life is short, break the rules, forgive quickly, kiss slowly, love truly, laugh uncontrollably, and never regret anything that made you smile.“ (Goodreads)" 
 
     -- Italian
     "“Chi ha tempo non aspetti tempo.” – Proverbio italiano",
@@ -88,7 +106,6 @@ local quotes = {
     "“知人者智，自知者明。” – Laozi",
     "“学而不思则罔，思而不学则殆。” – Confucius"
 }
-
 local function getDailyQuoteIndex()
     local currentTime = DateTime.now()
     local cetTime = DateTime.fromUnixTimestamp(currentTime.UnixTimestamp + 3600)
