@@ -182,35 +182,32 @@ end
 
 
 local function getScriptUrl()
-
     local scripts = {
         [7074860883] = { 
             [128336380114944] = "https://raw.githubusercontent.com/reavscripts/arise/refs/heads/main/dungeon.lua", 
-			[116614712661486] = "https://raw.githubusercontent.com/reavscripts/arise/refs/heads/main/afk.lua",
+            [116614712661486] = "https://raw.githubusercontent.com/reavscripts/arise/refs/heads/main/afk.lua",
             default = "https://raw.githubusercontent.com/reavscripts/arise/refs/heads/main/main.lua"
         },
-        -- Aggiungi altri giochi qui
-        [12345678901234] = {  -- gameid
-            [98765432109876] = "",  -- placeid alternativo
-            default = "" 
+        [7513130835] = {
+            [game.PlaceId] = "https://raw.githubusercontent.com/reavscripts/untitleddrillgame/main/main.lua",  -- Using game.PlaceId directly
+            default = "https://raw.githubusercontent.com/reavscripts/untitleddrillgame/main/main.lua"
         }
     }
-	
-	local room1
-	local main = workspace:FindFirstChild("__Main")
-	if main then
-		local world = main:FindFirstChild("__World")
-		if world then
-			room1 = world:FindFirstChild("Room_1")
-		end
-	end
 
-	if room1 and room1:FindFirstChild("Portal") then
-		showMessage("Special script triggered due to Room_1 and Portal.", 3)
-		return "https://raw.githubusercontent.com/reavscripts/arise/refs/heads/main/infernal.lua"
-	end
-	
-	
+    local room1
+    local main = workspace:FindFirstChild("__Main")
+    if main then
+        local world = main:FindFirstChild("__World")
+        if world then
+            room1 = world:FindFirstChild("Room_1")
+        end
+    end
+
+    if room1 and room1:FindFirstChild("Portal") then
+        showMessage("Special script triggered due to Room_1 and Portal.", 3)
+        return "https://raw.githubusercontent.com/reavscripts/arise/refs/heads/main/infernal.lua"
+    end
+
     local scriptUrl = scripts[game.GameId]
     if scriptUrl then
         return scriptUrl[game.PlaceId] or scriptUrl.default 
