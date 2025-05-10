@@ -3,6 +3,8 @@ if not game:IsLoaded() then
 end
 local Players = game:GetService("Players")
 local StarterGui = game:GetService("StarterGui")
+local TweenService = game:GetService("TweenService")
+local player = Players.LocalPlayer
 local player = Players.LocalPlayer or Players:GetPropertyChangedSignal("LocalPlayer"):Wait() and Players.LocalPlayer
 repeat task.wait() until player and player:FindFirstChild("PlayerGui")
 if getgenv().reavscripts then
@@ -109,11 +111,18 @@ local quotes = {
 }
 local function getDailyQuoteIndex()
     local utcTime = DateTime.now():ToUniversalTime()
-    local dayString = utcTime:ToIsoDate() -- e.g., "2025-04-22"
+    local year = utcTime.Year
+    local month = utcTime.Month
+    local day = utcTime.Day
+
+    -- Create a string like "2025-04-22"
+    local dayString = string.format("%04d-%02d-%02d", year, month, day)
+
     local hash = 0
     for i = 1, #dayString do
         hash = (hash * 31 + string.byte(dayString, i)) % #quotes
     end
+
     return hash + 1
 end
 
@@ -126,10 +135,7 @@ pcall(function()
     })
 end)
 
-local StarterGui = game:GetService("StarterGui")
-local Players = game:GetService("Players")
-local TweenService = game:GetService("TweenService")
-local player = Players.LocalPlayer
+
 
 local IMAGE_ID = "rbxassetid://104873171443907"
 local FINAL_SIZE = UDim2.new(0, 400, 0, 400)
@@ -171,7 +177,7 @@ tween:Play()
 tween.Completed:Connect(function()
     local labelTween = TweenService:Create(label, TweenInfo.new(1), {TextTransparency = 0})
     labelTween:Play()
-    task.delay(2.5, function()
+    task.delay(6, function()
         introGui:Destroy()
     end)
 end)
