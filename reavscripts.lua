@@ -135,15 +135,18 @@ local function getDailyQuoteIndex()
 end
 
 pcall(function()
+    local utcTime = DateTime.now():ToUniversalTime()
+    local month = utcTime.Month
+    local day = utcTime.Day
+    local dateStr = string.format("%02d/%02d", month, day)
+
     local quoteIndex = getDailyQuoteIndex()
     StarterGui:SetCore("SendNotification", {
-        Title = "💬 Quote of the Day",
+        Title = "💬 Quote of the Day - " .. dateStr,
         Text = quotes[quoteIndex],
         Duration = 15
     })
 end)
-
-
 
 local IMAGE_ID = "rbxassetid://104873171443907"
 local FINAL_SIZE = UDim2.new(0, 400, 0, 400)
