@@ -72,7 +72,15 @@ local quotes = {
 	"“A person who never made a mistake never tried anything new.“ - Albert Einstein",
 	"“My mission in life is not merely to survive, but to thrive; and to do so with some passion, some compassion, some humor, and some style.“ - Maya Angelou",
 	"“Life is short, break the rules... is often attributed to Mark Twain, and it encourages embracing life fully. The full quote is: Life is short, break the rules, forgive quickly, kiss slowly, love truly, laugh uncontrollably, and never regret anything that made you smile.“ (Goodreads)", 
-
+	"You've gotta dance like there's nobody watching, Love like you'll never be hurt, Sing like there's nobody listening, And live like it's heaven on earth.“ - William W. Purkey",
+	"Be the change that you wish to see in the world.“ - Mahatma Gandhi",
+	"Live as if you were to die tomorrow. Learn as if you were to live forever.“ - Mahatma Gandhi",
+	"“Imperfection is beauty, madness is genius and it's better to be absolutely ridiculous than absolutely boring.“ - Marilyn Monroe",
+	"“Listen to the mustn'ts, child. Listen to the don'ts. Listen to the shouldn'ts, the impossibles, the won'ts. Listen to the never haves, then listen close to me... Anything can happen, child. Anything can be.“ - Shel Silverstein",
+	"“You may say I'm a dreamer, but I'm not the only one. I hope someday you'll join us. And the world will live as one.“ - John Lennon",
+	"“Our deepest fear is not that we are inadequate. Our deepest fear is that we are powerful beyond measure. It is our light, not our darkness that most frightens us.“ - Marianne Williamson",
+	"“I have not failed. I've just found 10,000 ways that won't work.“ - Thomas A. Edison",
+	"“Human kindness has never weakened the stamina or softened the fiber of a free people. A nation does not have to be cruel to be tough.“ - Franklin D. Roosevelt",
 
     -- Italian
     	"“Chi ha tempo non aspetti tempo.” – Proverbio italiano",
