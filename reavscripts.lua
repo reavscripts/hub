@@ -117,6 +117,11 @@ local quotes = {
     	"“知人者智，自知者明。” – Laozi",
     	"“学而不思则罔，思而不学则殆。” – Confucius"
 }
+local monthNames = {
+    "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+    "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
+}
+
 local function getDailyQuoteIndex(utcTime)
     local year = utcTime.Year
     local month = utcTime.Month
@@ -134,7 +139,10 @@ end
 
 pcall(function()
     local utcTime = DateTime.now():ToUniversalTime()
-    local dateStr = string.format("%02d/%02d", utcTime.Month, utcTime.Day)
+    local day = utcTime.Day
+    local monthName = monthNames[utcTime.Month]
+    local dateStr = string.format("%d %s", day, monthName)
+
     local quoteIndex = getDailyQuoteIndex(utcTime)
 
     StarterGui:SetCore("SendNotification", {
