@@ -117,13 +117,11 @@ local quotes = {
     	"“知人者智，自知者明。” – Laozi",
     	"“学而不思则罔，思而不学则殆。” – Confucius"
 }
-local function getDailyQuoteIndex()
-    local utcTime = DateTime.now():ToUniversalTime()
+local function getDailyQuoteIndex(utcTime)
     local year = utcTime.Year
     local month = utcTime.Month
     local day = utcTime.Day
 
-    -- Create a string like "2025-04-22"
     local dayString = string.format("%04d-%02d-%02d", year, month, day)
 
     local hash = 0
@@ -136,11 +134,9 @@ end
 
 pcall(function()
     local utcTime = DateTime.now():ToUniversalTime()
-    local month = utcTime.Month
-    local day = utcTime.Day
-    local dateStr = string.format("%02d/%02d", month, day)
+    local dateStr = string.format("%02d/%02d", utcTime.Month, utcTime.Day)
+    local quoteIndex = getDailyQuoteIndex(utcTime)
 
-    local quoteIndex = getDailyQuoteIndex()
     StarterGui:SetCore("SendNotification", {
         Title = "💬 Quote of the Day - " .. dateStr,
         Text = quotes[quoteIndex],
