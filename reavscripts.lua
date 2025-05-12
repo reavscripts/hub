@@ -45,42 +45,42 @@ waitForSetCore("SendNotification")
 -- Quotes
 local quotes = {
     -- English
-    	"“The only thing we have to fear is fear itself.” – Franklin D. Roosevelt",
-    	"“Success is not final, failure is not fatal: It is the courage to continue that counts.” – Winston Churchill",
-    	"“Life is what happens when you're busy making other plans.” – John Lennon",
-    	"“Be yourself; everyone else is already taken.” – Oscar Wilde",
-    	"“In the middle of every difficulty lies opportunity.” – Albert Einstein",
-	"“You miss 100% of the shots you don’t take.” – Wayne Gretzky",
-	"“The best way to predict the future is to invent it.” – Alan Kay",
-	"“Do not go where the path may lead, go instead where there is no path and leave a trail.” – Ralph Waldo Emerson",
-	"“It does not matter how slowly you go as long as you do not stop.” – Confucius",
-	"“The essence of strategy is choosing what not to do.“ - Michael Porter",
-	"“One cannot and must not try to erase the past merely because it does not fit the present.“ - Golda Meir",
-	"“Patriotism means to stand by the country. It does not mean to stand by the president.“ - Theodore Roosevelt",
-	"“Death is something inevitable. When a man has done what he considers to be his duty to his people and his country, he can rest in peace. I believe I have made that effort and that is, therefore, why I will sleep for the eternity.“ - Nelson Mandela",
-	"“You have to love a nation that celebrates its independence every July 4, not with a parade of guns, tanks, and soldiers who file by the White House in a show of strength and muscle, but with family picnics where kids throw Frisbees, the potato salad gets iffy, and the flies die from happiness. You may think you have overeaten, but it is patriotism.“ - Erma Bombeck",
-	"“Be more concerned with your character than your reputation, because your character is what you really are, while your reputation is merely what others think you are.“ - John Wooden",
-	"“Weak people revenge. Strong people forgive. Intelligent People Ignore.“ - Albert Einstein",
-	"“A mind is like a parachute. It doesn't work if it is not open.“ - Frank Zappa",
-	"“Never be afraid to raise your voice for honesty and truth and compassion against injustice and lying and greed.“ If people all over the world...would do this, it would change the earth. - William Faulkner",
-	"“There are three kinds of men. The one that learns by reading. The few who learn by observation. The rest of them have to pee on the electric fence for themselves.“ - Will Rogers",
-	"“A strong nation, like a strong person, can afford to be gentle, firm, thoughtful, and restrained. It can afford to extend a helping hand to others. It's a weak nation, like a weak person, that must behave with bluster and boasting and rashness and other signs of insecurity.“ - Jimmy Carter",
-	"“The difference between stupidity and genius is that genius has its limits.“ - Albert Einstein",
-	"“We the people are the rightful masters of both Congress and the courts, not to overthrow the Constitution but to overthrow the men who pervert the Constitution.“ - Abraham Lincoln",
-	"“With or without religion, you would have good people doing good things and evil people doing evil things. But for good people to do evil things, that takes religion.“ - Steven Weinberg",
-	"“Human kindness has never weakened the stamina or softened the fiber of a free people. A nation does not have to be cruel to be tough.“ - Franklin D. Roosevelt",
-	"“A person who never made a mistake never tried anything new.“ - Albert Einstein",
-	"“My mission in life is not merely to survive, but to thrive; and to do so with some passion, some compassion, some humor, and some style.“ - Maya Angelou",
-	"“Life is short, break the rules... is often attributed to Mark Twain, and it encourages embracing life fully. The full quote is: Life is short, break the rules, forgive quickly, kiss slowly, love truly, laugh uncontrollably, and never regret anything that made you smile.“ (Goodreads)", 
-	"You've gotta dance like there's nobody watching, Love like you'll never be hurt, Sing like there's nobody listening, And live like it's heaven on earth.“ - William W. Purkey",
-	"Be the change that you wish to see in the world.“ - Mahatma Gandhi",
-	"Live as if you were to die tomorrow. Learn as if you were to live forever.“ - Mahatma Gandhi",
-	"“Imperfection is beauty, madness is genius and it's better to be absolutely ridiculous than absolutely boring.“ - Marilyn Monroe",
-	"“Listen to the mustn'ts, child. Listen to the don'ts. Listen to the shouldn'ts, the impossibles, the won'ts. Listen to the never haves, then listen close to me... Anything can happen, child. Anything can be.“ - Shel Silverstein",
-	"“You may say I'm a dreamer, but I'm not the only one. I hope someday you'll join us. And the world will live as one.“ - John Lennon",
-	"“Our deepest fear is not that we are inadequate. Our deepest fear is that we are powerful beyond measure. It is our light, not our darkness that most frightens us.“ - Marianne Williamson",
-	"“I have not failed. I've just found 10,000 ways that won't work.“ - Thomas A. Edison",
-	"“Human kindness has never weakened the stamina or softened the fiber of a free people. A nation does not have to be cruel to be tough.“ - Franklin D. Roosevelt",
+		"“The only thing we have to fear is fear itself.” – Franklin D. Roosevelt",
+		"“Success is not final, failure is not fatal: It is the courage to continue that counts.” – Winston Churchill",
+		"“Life is what happens when you're busy making other plans.” – John Lennon",
+		"“Be yourself; everyone else is already taken.” – Oscar Wilde",
+		"“In the middle of every difficulty lies opportunity.” – Albert Einstein",
+		"“You miss 100% of the shots you don’t take.” – Wayne Gretzky",
+		"“The best way to predict the future is to invent it.” – Alan Kay",
+		"“Do not go where the path may lead, go instead where there is no path and leave a trail.” – Ralph Waldo Emerson",
+		"“It does not matter how slowly you go as long as you do not stop.” – Confucius",
+		"“The essence of strategy is choosing what not to do.“ - Michael Porter",
+		"“One cannot and must not try to erase the past merely because it does not fit the present.“ - Golda Meir",
+		"“Patriotism means to stand by the country. It does not mean to stand by the president.“ - Theodore Roosevelt",
+		"“Death is something inevitable. When a man has done what he considers to be his duty to his people and his country, he can rest in peace. I believe I have made that effort and that is, therefore, why I will sleep for the eternity.“ - Nelson Mandela",
+		"“You have to love a nation that celebrates its independence every July 4, not with a parade of guns, tanks, and soldiers who file by the White House in a show of strength and muscle, but with family picnics where kids throw Frisbees, the potato salad gets iffy, and the flies die from happiness. You may think you have overeaten, but it is patriotism.“ - Erma Bombeck",
+		"“Be more concerned with your character than your reputation, because your character is what you really are, while your reputation is merely what others think you are.“ - John Wooden",
+		"“Weak people revenge. Strong people forgive. Intelligent People Ignore.“ - Albert Einstein",
+		"“A mind is like a parachute. It doesn't work if it is not open.“ - Frank Zappa",
+		"“Never be afraid to raise your voice for honesty and truth and compassion against injustice and lying and greed.“ If people all over the world...would do this, it would change the earth. - William Faulkner",
+		"“There are three kinds of men. The one that learns by reading. The few who learn by observation. The rest of them have to pee on the electric fence for themselves.“ - Will Rogers",
+		"“A strong nation, like a strong person, can afford to be gentle, firm, thoughtful, and restrained. It can afford to extend a helping hand to others. It's a weak nation, like a weak person, that must behave with bluster and boasting and rashness and other signs of insecurity.“ - Jimmy Carter",
+		"“The difference between stupidity and genius is that genius has its limits.“ - Albert Einstein",
+		"“We the people are the rightful masters of both Congress and the courts, not to overthrow the Constitution but to overthrow the men who pervert the Constitution.“ - Abraham Lincoln",
+		"“With or without religion, you would have good people doing good things and evil people doing evil things. But for good people to do evil things, that takes religion.“ - Steven Weinberg",
+		"“Human kindness has never weakened the stamina or softened the fiber of a free people. A nation does not have to be cruel to be tough.“ - Franklin D. Roosevelt",
+		"“A person who never made a mistake never tried anything new.“ - Albert Einstein",
+		"“My mission in life is not merely to survive, but to thrive; and to do so with some passion, some compassion, some humor, and some style.“ - Maya Angelou",
+		"“Life is short, break the rules... is often attributed to Mark Twain, and it encourages embracing life fully. The full quote is: Life is short, break the rules, forgive quickly, kiss slowly, love truly, laugh uncontrollably, and never regret anything that made you smile.“ (Goodreads)", 
+		"You've gotta dance like there's nobody watching, Love like you'll never be hurt, Sing like there's nobody listening, And live like it's heaven on earth.“ - William W. Purkey",
+		"Be the change that you wish to see in the world.“ - Mahatma Gandhi",
+		"Live as if you were to die tomorrow. Learn as if you were to live forever.“ - Mahatma Gandhi",
+		"“Imperfection is beauty, madness is genius and it's better to be absolutely ridiculous than absolutely boring.“ - Marilyn Monroe",
+		"“Listen to the mustn'ts, child. Listen to the don'ts. Listen to the shouldn'ts, the impossibles, the won'ts. Listen to the never haves, then listen close to me... Anything can happen, child. Anything can be.“ - Shel Silverstein",
+		"“You may say I'm a dreamer, but I'm not the only one. I hope someday you'll join us. And the world will live as one.“ - John Lennon",
+		"“Our deepest fear is not that we are inadequate. Our deepest fear is that we are powerful beyond measure. It is our light, not our darkness that most frightens us.“ - Marianne Williamson",
+		"“I have not failed. I've just found 10,000 ways that won't work.“ - Thomas A. Edison",
+		"“Human kindness has never weakened the stamina or softened the fiber of a free people. A nation does not have to be cruel to be tough.“ - Franklin D. Roosevelt",
 
     -- Italian
     	"“Chi ha tempo non aspetti tempo.” – Proverbio italiano",
@@ -103,16 +103,21 @@ local quotes = {
     	"“Im Anfang war die Tat.” – Johann Wolfgang von Goethe",
 
     -- Japanese
-    	"「七転び八起き」– Proverb (Fall seven times, stand up eight)",
-    	"「己を知り、敵を知れば百戦危うからず。」– Sun Tzu",
-    	"「明日は明日の風が吹く。」– Japanese proverb (Tomorrow's wind will blow tomorrow)",
+		"“「七転び八起き」” (Nanakorobi ya oki) - Fall seven times, stand up eight - Japanese proverb",
+		"“「明日は明日の風が吹く。」” (Ashita wa ashita no kaze ga fuku) - Tomorrow's wind will blow tomorrow - Japanese proverb",
+		"“「落花流水」” (Rakka ryūsui) - Flowers fall, water flows - Japanese proverb",
+		"“「一期一会」” (Ichigo ichie) - One life, one encounter - Japanese proverb",
+		"“「修羅の道」” (Shura no michi) - The path of the warrior - Japanese proverb",
+		"“「風林火山」” (Fūrin kaizan) - Wind, forest, fire, mountain - Japanese proverb",
+		"“「不器用な人ほど器用な人に会う」” (Fukirō na hito hodo kirō na hito ni au) - The less skilled you are, the more you meet skilled people - Japanese proverb",
 
     -- Latin
     	"“Veni, vidi, vici.” – Julius Caesar",
-   	"“Carpe diem.” – Horace",
+		"“Carpe diem.” – Horace",
     	"“Amor vincit omnia.” – Virgil",
 
     -- Chinese
+		"“「己を知り、敵を知れば百戦危うからず。」“ – Sun Tzu",
     	"“千里之行，始於足下。” – Laozi",
     	"“知人者智，自知者明。” – Laozi",
     	"“学而不思则罔，思而不学则殆。” – Confucius"
@@ -210,8 +215,12 @@ local function getScriptUrl()
             default = "https://raw.githubusercontent.com/reavscripts/arise/refs/heads/main/main.lua"
         },
         [7513130835] = {
-            [game.PlaceId] = "https://raw.githubusercontent.com/reavscripts/untitleddrillgame/main/main.lua",  -- Using game.PlaceId directly
+            [game.PlaceId] = "https://raw.githubusercontent.com/reavscripts/untitleddrillgame/main/main.lua",
             default = "https://raw.githubusercontent.com/reavscripts/untitleddrillgame/main/main.lua"
+        }
+        [7546582051] = {
+            [game.PlaceId] = "https://raw.githubusercontent.com/reavscripts/dungeon-heroes/refs/heads/main/main.lua",
+            default = "https://raw.githubusercontent.com/reavscripts/dungeon-heroes/refs/heads/main/main.lua"
         }
     }
 
