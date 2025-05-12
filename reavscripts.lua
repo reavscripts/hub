@@ -218,8 +218,7 @@ local function getScriptUrl()
             [game.PlaceId] = "https://raw.githubusercontent.com/reavscripts/untitleddrillgame/main/main.lua",
             default = "https://raw.githubusercontent.com/reavscripts/untitleddrillgame/main/main.lua"
         }
-        [7546582051] = {
-            [game.PlaceId] = "https://raw.githubusercontent.com/reavscripts/dungeon-heroes/refs/heads/main/main.lua",
+        [94845773826960] = {
             default = "https://raw.githubusercontent.com/reavscripts/dungeon-heroes/refs/heads/main/main.lua"
         }
     }
