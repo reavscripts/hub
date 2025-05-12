@@ -217,14 +217,14 @@ local function getScriptUrl()
         [7513130835] = {
             [game.PlaceId] = "https://raw.githubusercontent.com/reavscripts/untitleddrillgame/main/main.lua",
             default = "https://raw.githubusercontent.com/reavscripts/untitleddrillgame/main/main.lua"
+        },
+        [7546582051] = {
+            [94845773826960] = "https://raw.githubusercontent.com/reavscripts/dungeon-heroes/main/main.lua",
+            default = "https://raw.githubusercontent.com/reavscripts/dungeon-heroes/main/main.lua"
         }
-		local scripts = {
-			[94845773826960] = {
-			[7546582051] = "https://raw.githubusercontent.com/reavscripts/dungeon-heroes/main/main.lua",
-			default = "https://raw.githubusercontent.com/reavscripts/dungeon-heroes/main/main.lua" 
-		}
     }
 
+    -- Optional world check override
     local room1
     local main = workspace:FindFirstChild("__Main")
     if main then
@@ -235,16 +235,19 @@ local function getScriptUrl()
     end
 
     if room1 and room1:FindFirstChild("Portal") then
-        showMessage("Special script triggered due to Room_1 and Portal.", 3)
+        if showMessage then
+            showMessage("Special script triggered due to Room_1 and Portal.", 3)
+        end
         return "https://raw.githubusercontent.com/reavscripts/arise/refs/heads/main/infernal.lua"
     end
 
-    local scriptUrl = scripts[game.GameId]
-    if scriptUrl then
-        return scriptUrl[game.PlaceId] or scriptUrl.default 
+    -- Load based on game and place
+    local gameScripts = scripts[game.GameId]
+    if gameScripts then
+        return gameScripts[game.PlaceId] or gameScripts.default
     end
 
-    return nil 
+    return nil
 end
 
 local function executeScript()
