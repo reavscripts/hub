@@ -170,7 +170,7 @@ local image = Instance.new("ImageLabel")
 image.Name = "IntroImage"
 image.AnchorPoint = Vector2.new(0.5, 0.5)
 image.Position = UDim2.new(0.5, 0, 0.5, -50)
-image.Size = UDim2.new(0, 50, 0, 50) -- Inizia piccola
+image.Size = UDim2.new(0, 50, 0, 50)
 image.BackgroundTransparency = 1
 image.Image = IMAGE_ID
 image.Parent = introGui
@@ -186,7 +186,7 @@ label.TextStrokeTransparency = 0.5
 label.TextStrokeColor3 = Color3.new(0, 0, 0)
 label.TextSize = 72
 label.Font = Enum.Font.LuckiestGuy
-label.TextTransparency = 1 -- Inizio invisibile
+label.TextTransparency = 1
 label.Parent = introGui
 
 local tweenInfo = TweenInfo.new(.5, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
