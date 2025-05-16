@@ -230,6 +230,10 @@ local function getScriptUrl()
         [7546582051] = {
             [94845773826960] = "https://raw.githubusercontent.com/reavscripts/dungeon-heroes/main/main.lua",
             default = "https://raw.githubusercontent.com/reavscripts/dungeon-heroes/main/main.lua"
+        },
+        [6944155317] = {
+            [72615021017011] = "https://raw.githubusercontent.com/reavscripts/unlimitedworld/refs/heads/main/main.lua",
+            default = "https://raw.githubusercontent.com/reavscripts/unlimitedworld/refs/heads/main/main.lua"
         }
     }
 
