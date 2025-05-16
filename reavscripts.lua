@@ -160,12 +160,19 @@ end)
 local IMAGE_ID = "rbxassetid://104873171443907"
 local FINAL_SIZE = UDim2.new(0, 400, 0, 400)
 
+-- Create ScreenGui
 local introGui = Instance.new("ScreenGui")
 introGui.Name = "IntroGui"
 introGui.IgnoreGuiInset = true
 introGui.ResetOnSpawn = false
 introGui.Parent = player:WaitForChild("PlayerGui")
 
+-- Add UIScale for responsiveness
+local uiScale = Instance.new("UIScale")
+uiScale.Scale = 1 
+uiScale.Parent = introGui
+
+-- Create Image
 local image = Instance.new("ImageLabel")
 image.Name = "IntroImage"
 image.AnchorPoint = Vector2.new(0.5, 0.5)
@@ -175,6 +182,7 @@ image.BackgroundTransparency = 1
 image.Image = IMAGE_ID
 image.Parent = introGui
 
+-- Create Text Label
 local label = Instance.new("TextLabel")
 label.AnchorPoint = Vector2.new(0.5, 0)
 label.Position = UDim2.new(0.5, 0, 0.5, 170)
@@ -189,11 +197,12 @@ label.Font = Enum.Font.LuckiestGuy
 label.TextTransparency = 1
 label.Parent = introGui
 
-local tweenInfo = TweenInfo.new(.5, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
+-- Tween Image In
+local tweenInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
 local tween = TweenService:Create(image, tweenInfo, {Size = FINAL_SIZE})
 tween:Play()
 
-
+-- Tween Label In and then Destroy GUI after delay
 tween.Completed:Connect(function()
     local labelTween = TweenService:Create(label, TweenInfo.new(1), {TextTransparency = 0})
     labelTween:Play()
