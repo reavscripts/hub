@@ -8,21 +8,39 @@ local player = Players.LocalPlayer
 local player = Players.LocalPlayer or Players:GetPropertyChangedSignal("LocalPlayer"):Wait() and Players.LocalPlayer
 repeat task.wait() until player and player:FindFirstChild("PlayerGui")
 if getgenv().reavscripts then
-    local infoGui = Instance.new("ScreenGui")
-    infoGui.Name = "ReavAlreadyRunning"
-    infoGui.ResetOnSpawn = false
-    infoGui.Parent = player:WaitForChild("PlayerGui")
+-- Create ScreenGui
+	local infoGui = Instance.new("ScreenGui")
+	infoGui.Name = "ReavAlreadyRunning"
+	infoGui.ResetOnSpawn = false
+	infoGui.IgnoreGuiInset = true
+	infoGui.Parent = player:WaitForChild("PlayerGui")
 
-    local label = Instance.new("TextLabel")
-    label.Size = UDim2.new(0.4, 0, 0.05, 0)
-    label.Position = UDim2.new(0.3, 0, 0.4, 0) -- 10% above center
-    label.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
-    label.BackgroundTransparency = 0.2
-    label.TextColor3 = Color3.fromRGB(255, 100, 100)
-    label.Font = Enum.Font.GothamBold
-    label.TextScaled = true
-    label.Text = "Reav's Scripts already executed!"
-    label.Parent = infoGui
+	-- Create Label
+	local label = Instance.new("TextLabel")
+	label.Size = UDim2.new(0.6, 0, 0.08, 0) -- 60% width, 8% height
+	label.Position = UDim2.new(0.2, 0, 0.4, 0) -- Centered horizontally, 40% down
+	label.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+	label.BackgroundTransparency = 0.2
+	label.TextColor3 = Color3.fromRGB(255, 100, 100)
+	label.Font = Enum.Font.GothamBold
+	label.TextScaled = true
+	label.Text = "Reav's Scripts already executed!"
+	label.TextStrokeTransparency = 0.4
+	label.TextStrokeColor3 = Color3.new(0, 0, 0)
+	label.Parent = infoGui
+
+	-- Add padding and text size constraints
+	local textConstraint = Instance.new("UITextSizeConstraint")
+	textConstraint.MinTextSize = 14
+	textConstraint.MaxTextSize = 60
+	textConstraint.Parent = label
+
+	local padding = Instance.new("UIPadding")
+	padding.PaddingLeft = UDim.new(0.02, 0)
+	padding.PaddingRight = UDim.new(0.02, 0)
+	padding.PaddingTop = UDim.new(0.02, 0)
+	padding.PaddingBottom = UDim.new(0.02, 0)
+	padding.Parent = label
 
     task.delay(3, function()
         infoGui:Destroy()
@@ -160,6 +178,9 @@ end)
 local IMAGE_ID = "rbxassetid://104873171443907"
 local FINAL_SIZE = UDim2.new(0, 400, 0, 400)
 
+local Players = game:GetService("Players")
+local player = Players.LocalPlayer
+
 -- Create ScreenGui
 local introGui = Instance.new("ScreenGui")
 introGui.Name = "IntroGui"
@@ -167,35 +188,51 @@ introGui.IgnoreGuiInset = true
 introGui.ResetOnSpawn = false
 introGui.Parent = player:WaitForChild("PlayerGui")
 
--- Add UIScale for responsiveness
+-- Optional: add a full screen background frame if you want fade-in/out effects
+-- local bgFrame = Instance.new("Frame")
+-- bgFrame.Size = UDim2.new(1, 0, 1, 0)
+-- bgFrame.BackgroundColor3 = Color3.new(0, 0, 0)
+-- bgFrame.BackgroundTransparency = 1
+-- bgFrame.Parent = introGui
+
+-- Add UIScale for global responsiveness
 local uiScale = Instance.new("UIScale")
-uiScale.Scale = 1 
 uiScale.Parent = introGui
+uiScale.Scale = 1  -- You can dynamically adjust this later based on resolution if needed
 
 -- Create Image
 local image = Instance.new("ImageLabel")
 image.Name = "IntroImage"
 image.AnchorPoint = Vector2.new(0.5, 0.5)
 image.Position = UDim2.new(0.5, 0, 0.5, -50)
-image.Size = UDim2.new(0, 50, 0, 50)
+image.Size = UDim2.new(0.15, 0, 0.15, 0) -- Scale-based size for responsiveness
 image.BackgroundTransparency = 1
 image.Image = IMAGE_ID
 image.Parent = introGui
 
+local aspect = Instance.new("UIAspectRatioConstraint")
+aspect.Parent = image
+aspect.AspectRatio = 1
+
 -- Create Text Label
 local label = Instance.new("TextLabel")
 label.AnchorPoint = Vector2.new(0.5, 0)
-label.Position = UDim2.new(0.5, 0, 0.5, 170)
-label.Size = UDim2.new(0, 400, 0, 50)
+label.Position = UDim2.new(0.5, 0, 0.5, 100)
+label.Size = UDim2.new(0.7, 0, 0.1, 0) -- Responsive width and height
 label.BackgroundTransparency = 1
 label.Text = "Reav'S sCriptS"
 label.TextColor3 = Color3.fromRGB(255, 255, 255)
 label.TextStrokeTransparency = 0.5
 label.TextStrokeColor3 = Color3.new(0, 0, 0)
-label.TextSize = 72
 label.Font = Enum.Font.LuckiestGuy
+label.TextScaled = true
 label.TextTransparency = 1
 label.Parent = introGui
+
+local textConstraint = Instance.new("UITextSizeConstraint")
+textConstraint.MaxTextSize = 72
+textConstraint.MinTextSize = 14
+textConstraint.Parent = label
 
 -- Tween Image In
 local tweenInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
