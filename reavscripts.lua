@@ -42,7 +42,7 @@ if getgenv().reavscripts then
 	label.BackgroundTransparency = 1
 	label.TextColor3 = Color3.fromRGB(255, 100, 100)
 	label.Font = Enum.Font.GothamBold
-	label.Text = "🚫 Reav's Scripts already running!"
+	label.Text = "🚫 reav's Scripts already running!"
 	label.TextScaled = true
 	label.TextWrapped = true
 	label.TextStrokeTransparency = 0.4
@@ -208,20 +208,19 @@ introGui.Parent = player:WaitForChild("PlayerGui")
 local uiScale = Instance.new("UIScale")
 uiScale.Parent = introGui
 
--- Adjust scale based on resolution
 local screenSize = workspace.CurrentCamera.ViewportSize
 if screenSize.X < 800 then
-    uiScale.Scale = 0.75 -- Mobile
+	uiScale.Scale = 0.75 -- Mobile
 else
-    uiScale.Scale = 1 -- PC
+	uiScale.Scale = 1 -- PC
 end
 
 -- Image
 local image = Instance.new("ImageLabel")
 image.Name = "IntroImage"
-image.AnchorPoint = Vector2.new(0.5, 0.5)
-image.Position = UDim2.new(0.5, 0, 0.5, -50)
-image.Size = UDim2.new(0.25, 0, 0.25, 0) -- Relative size
+image.AnchorPoint = Vector2.new(0.5, 1) -- align bottom of image to top of label
+image.Position = UDim2.new(0.5, 0, 0.5, -30) -- slightly more spacing above
+image.Size = UDim2.new(0.5, 0, 0.5, 0) -- increased from 0.25 to 0.3
 image.BackgroundTransparency = 1
 image.Image = IMAGE_ID
 image.Parent = introGui
@@ -233,7 +232,7 @@ aspect.AspectRatio = 1
 -- Label
 local label = Instance.new("TextLabel")
 label.AnchorPoint = Vector2.new(0.5, 0)
-label.Position = UDim2.new(0.5, 0, 0.5, 100)
+label.Position = UDim2.new(0.5, 0, 0.5, 20) -- slightly below center
 label.Size = UDim2.new(0.8, 0, 0.1, 0)
 label.BackgroundTransparency = 1
 label.Text = "Reav'S sCriptS"
@@ -250,18 +249,17 @@ textConstraint.MaxTextSize = 72
 textConstraint.MinTextSize = 14
 textConstraint.Parent = label
 
--- Tween image in
+-- Tween both in
 local tweenInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
 local imageTween = TweenService:Create(image, tweenInfo, {Size = UDim2.new(0.25, 0, 0.25, 0)})
 imageTween:Play()
 
--- Tween label in and destroy GUI after delay
 imageTween.Completed:Connect(function()
-    local labelTween = TweenService:Create(label, TweenInfo.new(1), {TextTransparency = 0})
-    labelTween:Play()
-    task.delay(4, function()
-        introGui:Destroy()
-    end)
+	local labelTween = TweenService:Create(label, TweenInfo.new(1), {TextTransparency = 0})
+	labelTween:Play()
+	task.delay(4, function()
+		introGui:Destroy()
+	end)
 end)
 
 
