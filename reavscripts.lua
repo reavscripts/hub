@@ -8,33 +8,53 @@ local player = Players.LocalPlayer
 local player = Players.LocalPlayer or Players:GetPropertyChangedSignal("LocalPlayer"):Wait() and Players.LocalPlayer
 repeat task.wait() until player and player:FindFirstChild("PlayerGui")
 if getgenv().reavscripts then
--- Create ScreenGui
+	local Players = game:GetService("Players")
+	local player = Players.LocalPlayer
+
 	local infoGui = Instance.new("ScreenGui")
 	infoGui.Name = "ReavAlreadyRunning"
 	infoGui.ResetOnSpawn = false
 	infoGui.IgnoreGuiInset = true
 	infoGui.Parent = player:WaitForChild("PlayerGui")
 
-	-- Create Label
+	-- Optional: UIScale for better mobile/PC responsiveness
+	local scale = Instance.new("UIScale")
+	scale.Parent = infoGui
+	scale.Scale = 1  -- You can dynamically tweak this if needed
+
+	-- Container Frame (centered)
+	local container = Instance.new("Frame")
+	container.Size = UDim2.new(0.8, 0, 0.2, 0)
+	container.Position = UDim2.new(0.5, 0, 0.85, 0)
+	container.AnchorPoint = Vector2.new(0.5, 0.5)
+	container.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+	container.BackgroundTransparency = 0.2
+	container.Parent = infoGui
+
+	local corner = Instance.new("UICorner")
+	corner.CornerRadius = UDim.new(0, 12)
+	corner.Parent = container
+
 	local label = Instance.new("TextLabel")
-	label.Size = UDim2.new(0.6, 0, 0.08, 0) -- 60% width, 8% height
-	label.Position = UDim2.new(0.2, 0, 0.4, 0) -- Centered horizontally, 40% down
-	label.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
-	label.BackgroundTransparency = 0.2
+	label.Size = UDim2.new(1, -20, 1, -20)
+	label.Position = UDim2.new(0.5, 0, 0.5, 0)
+	label.AnchorPoint = Vector2.new(0.5, 0.5)
+	label.BackgroundTransparency = 1
 	label.TextColor3 = Color3.fromRGB(255, 100, 100)
 	label.Font = Enum.Font.GothamBold
+	label.Text = "🚫 Reav's Scripts already running!"
 	label.TextScaled = true
-	label.Text = "Reav's Scripts already executed!"
+	label.TextWrapped = true
 	label.TextStrokeTransparency = 0.4
 	label.TextStrokeColor3 = Color3.new(0, 0, 0)
-	label.Parent = infoGui
+	label.Parent = container
 
-	-- Add padding and text size constraints
-	local textConstraint = Instance.new("UITextSizeConstraint")
-	textConstraint.MinTextSize = 14
-	textConstraint.MaxTextSize = 60
-	textConstraint.Parent = label
+	local constraint = Instance.new("UITextSizeConstraint")
+	constraint.MinTextSize = 14
+	constraint.MaxTextSize = 60
+	constraint.Parent = label
 
+	-- Optional Padding
 	local padding = Instance.new("UIPadding")
 	padding.PaddingLeft = UDim.new(0.02, 0)
 	padding.PaddingRight = UDim.new(0.02, 0)
@@ -42,11 +62,11 @@ if getgenv().reavscripts then
 	padding.PaddingBottom = UDim.new(0.02, 0)
 	padding.Parent = label
 
-    task.delay(3, function()
-        infoGui:Destroy()
-    end)
+	task.delay(3, function()
+		infoGui:Destroy()
+	end)
 
-    return
+	return
 end
 
 getgenv().reavscripts = true
@@ -176,10 +196,6 @@ pcall(function()
 end)
 
 local IMAGE_ID = "rbxassetid://104873171443907"
-local FINAL_SIZE = UDim2.new(0, 400, 0, 400)
-
-local Players = game:GetService("Players")
-local player = Players.LocalPlayer
 
 -- Create ScreenGui
 local introGui = Instance.new("ScreenGui")
@@ -188,24 +204,24 @@ introGui.IgnoreGuiInset = true
 introGui.ResetOnSpawn = false
 introGui.Parent = player:WaitForChild("PlayerGui")
 
--- Optional: add a full screen background frame if you want fade-in/out effects
--- local bgFrame = Instance.new("Frame")
--- bgFrame.Size = UDim2.new(1, 0, 1, 0)
--- bgFrame.BackgroundColor3 = Color3.new(0, 0, 0)
--- bgFrame.BackgroundTransparency = 1
--- bgFrame.Parent = introGui
-
--- Add UIScale for global responsiveness
+-- UIScale for responsiveness
 local uiScale = Instance.new("UIScale")
 uiScale.Parent = introGui
-uiScale.Scale = 1  -- You can dynamically adjust this later based on resolution if needed
 
--- Create Image
+-- Adjust scale based on resolution
+local screenSize = workspace.CurrentCamera.ViewportSize
+if screenSize.X < 800 then
+    uiScale.Scale = 0.75 -- Mobile
+else
+    uiScale.Scale = 1 -- PC
+end
+
+-- Image
 local image = Instance.new("ImageLabel")
 image.Name = "IntroImage"
 image.AnchorPoint = Vector2.new(0.5, 0.5)
 image.Position = UDim2.new(0.5, 0, 0.5, -50)
-image.Size = UDim2.new(0.15, 0, 0.15, 0) -- Scale-based size for responsiveness
+image.Size = UDim2.new(0.25, 0, 0.25, 0) -- Relative size
 image.BackgroundTransparency = 1
 image.Image = IMAGE_ID
 image.Parent = introGui
@@ -214,11 +230,11 @@ local aspect = Instance.new("UIAspectRatioConstraint")
 aspect.Parent = image
 aspect.AspectRatio = 1
 
--- Create Text Label
+-- Label
 local label = Instance.new("TextLabel")
 label.AnchorPoint = Vector2.new(0.5, 0)
 label.Position = UDim2.new(0.5, 0, 0.5, 100)
-label.Size = UDim2.new(0.7, 0, 0.1, 0) -- Responsive width and height
+label.Size = UDim2.new(0.8, 0, 0.1, 0)
 label.BackgroundTransparency = 1
 label.Text = "Reav'S sCriptS"
 label.TextColor3 = Color3.fromRGB(255, 255, 255)
@@ -234,19 +250,20 @@ textConstraint.MaxTextSize = 72
 textConstraint.MinTextSize = 14
 textConstraint.Parent = label
 
--- Tween Image In
+-- Tween image in
 local tweenInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
-local tween = TweenService:Create(image, tweenInfo, {Size = FINAL_SIZE})
-tween:Play()
+local imageTween = TweenService:Create(image, tweenInfo, {Size = UDim2.new(0.25, 0, 0.25, 0)})
+imageTween:Play()
 
--- Tween Label In and then Destroy GUI after delay
-tween.Completed:Connect(function()
+-- Tween label in and destroy GUI after delay
+imageTween.Completed:Connect(function()
     local labelTween = TweenService:Create(label, TweenInfo.new(1), {TextTransparency = 0})
     labelTween:Play()
     task.delay(4, function()
         introGui:Destroy()
     end)
 end)
+
 
 local function showMessage(message, duration)
 
