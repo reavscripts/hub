@@ -4,7 +4,6 @@ end
 local Players = game:GetService("Players")
 local StarterGui = game:GetService("StarterGui")
 local TweenService = game:GetService("TweenService")
-local player = Players.LocalPlayer
 local player = Players.LocalPlayer or Players:GetPropertyChangedSignal("LocalPlayer"):Wait() and Players.LocalPlayer
 repeat task.wait() until player and player:FindFirstChild("PlayerGui")
 if getgenv().reavscripts then
@@ -218,9 +217,9 @@ end
 -- Image
 local image = Instance.new("ImageLabel")
 image.Name = "IntroImage"
-image.AnchorPoint = Vector2.new(0.5, 1) -- align bottom of image to top of label
-image.Position = UDim2.new(0.5, 0, 0.5, -30) -- slightly more spacing above
-image.Size = UDim2.new(0.5, 0, 0.5, 0) -- increased from 0.25 to 0.3
+image.AnchorPoint = Vector2.new(0.5, 0.5) -- Anchor at the center
+image.Position = UDim2.new(0.5, 0, 0.3, 0) -- Position at the top
+image.Size = UDim2.new(0.8, 0, 0.8, 0)
 image.BackgroundTransparency = 1
 image.Image = IMAGE_ID
 image.Parent = introGui
@@ -232,7 +231,7 @@ aspect.AspectRatio = 1
 -- Label
 local label = Instance.new("TextLabel")
 label.AnchorPoint = Vector2.new(0.5, 0)
-label.Position = UDim2.new(0.5, 0, 0.5, 20) -- slightly below center
+label.Position = UDim2.new(0.5, 0, 0.65, 0) -- Position at the middle
 label.Size = UDim2.new(0.8, 0, 0.1, 0)
 label.BackgroundTransparency = 1
 label.Text = "Reav'S sCriptS"
@@ -255,16 +254,24 @@ local imageTween = TweenService:Create(image, tweenInfo, {Size = UDim2.new(0.25,
 imageTween:Play()
 
 imageTween.Completed:Connect(function()
-	local labelTween = TweenService:Create(label, TweenInfo.new(1), {TextTransparency = 0})
+	local labelTween = TweenService:Create(label, tweenInfo, {TextTransparency = 0})
 	labelTween:Play()
-	task.delay(4, function()
+	task.delay(6, function()
 		introGui:Destroy()
 	end)
 end)
 
-
 local function showMessage(message, duration)
-
+    local success, err = pcall(function()
+        StarterGui:SetCore("SendNotification", {
+            Title = "reavscripts",
+            Text = message,
+            Duration = duration or 5
+        })
+    end)
+    if not success then
+        warn("[ReavScripts] Failed to show notification:", err)
+    end
 end
 
 
