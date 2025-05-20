@@ -117,7 +117,6 @@ local quotes = {
 		"“You may say I'm a dreamer, but I'm not the only one. I hope someday you'll join us. And the world will live as one.“ - John Lennon",
 		"“Our deepest fear is not that we are inadequate. Our deepest fear is that we are powerful beyond measure. It is our light, not our darkness that most frightens us.“ - Marianne Williamson",
 		"“I have not failed. I've just found 10,000 ways that won't work.“ - Thomas A. Edison",
-		"“Human kindness has never weakened the stamina or softened the fiber of a free people. A nation does not have to be cruel to be tough.“ - Franklin D. Roosevelt",
 
     -- Italian
     	"“Chi ha tempo non aspetti tempo.” – Proverbio italiano",
