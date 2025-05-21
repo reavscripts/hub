@@ -200,6 +200,7 @@ local introGui = Instance.new("ScreenGui")
 introGui.Name = "IntroGui"
 introGui.IgnoreGuiInset = true
 introGui.ResetOnSpawn = false
+local LocalPlayer = Players.LocalPlayer
 introGui.Parent = LocalPlayer:WaitForChild("PlayerGui")
 
 -- UIScale per la responsività (Meglio metterlo dopo il parent, e aggiornarlo se la dimensione cambia)
