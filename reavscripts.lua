@@ -200,25 +200,30 @@ local introGui = Instance.new("ScreenGui")
 introGui.Name = "IntroGui"
 introGui.IgnoreGuiInset = true
 introGui.ResetOnSpawn = false
-introGui.Parent = player:WaitForChild("PlayerGui")
+introGui.Parent = LocalPlayer:WaitForChild("PlayerGui")
 
--- UIScale for responsiveness
+-- UIScale per la responsività (Meglio metterlo dopo il parent, e aggiornarlo se la dimensione cambia)
 local uiScale = Instance.new("UIScale")
 uiScale.Parent = introGui
 
-local screenSize = workspace.CurrentCamera.ViewportSize
-if screenSize.X < 800 then
-	uiScale.Scale = 0.75 -- Mobile
-else
-	uiScale.Scale = 1 -- PC
+-- Funzione per impostare la scala in base alla dimensione dello schermo
+local function updateUIScale()
+    local screenSize = workspace.CurrentCamera.ViewportSize
+    if screenSize.X < 800 then
+        uiScale.Scale = 0.75 -- Mobile
+    else
+        uiScale.Scale = 1 -- PC
+    end
 end
 
--- Image
+updateUIScale()
+RunService.RenderStepped:Connect(updateUIScale) 
+
 local image = Instance.new("ImageLabel")
 image.Name = "IntroImage"
-image.AnchorPoint = Vector2.new(0.5, 0.5) -- Anchor at the center
-image.Position = UDim2.new(0.5, 0, 0.3, 0) -- Position at the top
-image.Size = UDim2.new(0.8, 0, 0.8, 0)
+image.AnchorPoint = Vector2.new(0.5, 0.5) 
+image.Position = UDim2.new(0.5, 0, 0.5, 0) 
+image.Size = UDim2.new(0, 50, 0, 50) 
 image.BackgroundTransparency = 1
 image.Image = IMAGE_ID
 image.Parent = introGui
@@ -226,11 +231,12 @@ image.Parent = introGui
 local aspect = Instance.new("UIAspectRatioConstraint")
 aspect.Parent = image
 aspect.AspectRatio = 1
+aspect.DominantAxis = Enum.DominantAxis.Height 
 
--- Label
+-- Label (inizialmente trasparente)
 local label = Instance.new("TextLabel")
 label.AnchorPoint = Vector2.new(0.5, 0)
-label.Position = UDim2.new(0.5, 0, 0.65, 0) -- Position at the middle
+label.Position = UDim2.new(0.5, 0, 0.65, 0) 
 label.Size = UDim2.new(0.8, 0, 0.1, 0)
 label.BackgroundTransparency = 1
 label.Text = "Reav'S sCriptS"
@@ -239,7 +245,7 @@ label.TextStrokeTransparency = 0.5
 label.TextStrokeColor3 = Color3.new(0, 0, 0)
 label.Font = Enum.Font.LuckiestGuy
 label.TextScaled = true
-label.TextTransparency = 1
+label.TextTransparency = 1 
 label.Parent = introGui
 
 local textConstraint = Instance.new("UITextSizeConstraint")
@@ -247,17 +253,39 @@ textConstraint.MaxTextSize = 72
 textConstraint.MinTextSize = 14
 textConstraint.Parent = label
 
--- Tween both in
-local tweenInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
-local imageTween = TweenService:Create(image, tweenInfo, {Size = UDim2.new(0.25, 0, 0.25, 0)})
+-- Definisci le proprietà di destinazione per l'immagine
+local targetImageSize = UDim2.new(0.25, 0, 0.25, 0) 
+local targetImagePosition = UDim2.new(0.5, 0, 0.35, 0) 
+
+-- Tween per l'immagine (ingrandimento e spostamento verso l'alto)
+local imageTweenInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
+local imageTween = TweenService:Create(image, imageTweenInfo, {
+    Size = targetImageSize,
+    Position = targetImagePosition 
+})
+
 imageTween:Play()
 
+-- Collega la fine del tween dell'immagine
 imageTween.Completed:Connect(function()
-	local labelTween = TweenService:Create(label, tweenInfo, {TextTransparency = 0})
-	labelTween:Play()
-	task.delay(4, function()
-		introGui:Destroy()
-	end)
+    local imageAbsoluteY = (targetImagePosition.Y.Scale * introGui.AbsoluteSize.Y) + (targetImagePosition.Y.Offset)
+    local imageAbsoluteHeight = (targetImageSize.Y.Scale * introGui.AbsoluteSize.Y) + (targetImageSize.Y.Offset)
+    local labelOffsetFromImage = 20
+    local labelYPosition = imageAbsoluteY + (imageAbsoluteHeight / 2) + labelOffsetFromImage
+    label.Position = UDim2.new(0.5, 0, 0, labelYPosition) 
+    local labelTweenInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
+    local labelTween = TweenService:Create(label, labelTweenInfo, {TextTransparency = 0})
+    labelTween:Play()
+
+    labelTween.Completed:Connect(function()
+        task.delay(5, function()
+            introGui:Destroy()
+            if RunServiceConnection then
+                RunServiceConnection:Disconnect()
+                RunServiceConnection = nil
+            end
+        end)
+    end)
 end)
 
 local function showMessage(message, duration)
