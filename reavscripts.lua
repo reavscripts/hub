@@ -218,6 +218,7 @@ local function updateUIScale()
 end
 
 updateUIScale()
+local RunService = game:GetService("RunService")
 RunService.RenderStepped:Connect(updateUIScale) 
 
 local image = Instance.new("ImageLabel")
